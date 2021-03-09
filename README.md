@@ -1,5 +1,4 @@
 # Social Media API 
-badge goes here
 
 ## Description
 An API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. I used Express.js for routing, a MongoDB database, and the Mongoose ODM.
@@ -10,10 +9,25 @@ I WANT an API for my social network that uses a NoSQL database
 SO THAT my website can handle large amounts of unstructured data
 
 ## Installation
-Installation steps
+Make sure to have `node` installed. 
 
 ## Usage
-Enter Walkthought Video here and explaination of how to use
+Open up the project in VSCode, navigate to the root folder in terminal and use command `npm start` to start the server. Then open up Insomnia Core to implement tests using the proper routes.
+
+Post new user
+Get user by Id
+Update user by Id
+Delete user by Id
+
+Post thought
+update thought
+get thought by id
+get all thoughts
+
+add friend
+delete friend
+
+
 
 ## Built With
 * JavaScript
@@ -22,7 +36,7 @@ Enter Walkthought Video here and explaination of how to use
 * Express.js
 * MongoDB
 * Mongoose ODM
-* Moment.js
+* Date-FNS
 
 ## Credits
 Big thanks to the instructional team at Upenn LPS Coding Bootcamp for their support: TA's, Andy Durette, Symone Varnado, Chris Hackett, Nate Sopko, my instructor, Chase Clettenberg, and my tutor, Jon Jackson. 
