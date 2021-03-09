@@ -26,7 +26,7 @@ const ReactionSchema = new Schema(
   },
   {
     toJSON: {
-      getters: true,
+      getters: true
     },
   }
 );
@@ -37,7 +37,7 @@ const ThoughtSchema = new Schema(
       type: String,
       minLength: 1,
       maxLength: 280,
-      required: "Text is required",
+      required: true
     },
     createdAt: {
       type: Date,
@@ -63,7 +63,7 @@ const ThoughtSchema = new Schema(
 
 //virtual called reactionCount that retrieves the length of the thought's reactions array field on query.
 ThoughtSchema.virtual("reactionCount").get(function () {
-  return this.reaction.length;
+  return this.reactions.length;
 });
 
 const Thought = model("Thought", ThoughtSchema);
