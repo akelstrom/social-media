@@ -1,15 +1,15 @@
-const { Thoughts, User }  = require('../models')
+const { Thoughts, User }  = require('../models');
 
 const thoughtController = {
     //get all thoughts
-    getAllThought(req, res) {
+    getAllThoughts(req, res) {
         Thoughts.find([])
         .populate({
             path: 'thoughts',
             select: '-__v'
         })
         .select('-__v')
-        .sort({_d: -1})
+        .sort({ _id: -1 })
         .then((dbThoughtData) => res.json(dbThoughtData))
         .catch((err) => {
             console.log(err);
@@ -61,7 +61,7 @@ const thoughtController = {
             }
             return User.findOneAndUpdate(
               { _id: params.thoughtId },
-              { $pull: { comments: params.thoughtId } },
+              { $pull: { thoughts: params.thoughtId } },
               { new: true }
             );
           })
@@ -92,7 +92,7 @@ const thoughtController = {
     addReaction({ params, body }, res) {
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
-            { $push: { reaction: body } },
+            { $push: { reactions: body } },
             { new: true }
         )
         .then(dbThoughtData => {
@@ -109,7 +109,7 @@ const thoughtController = {
     removeReaction({ params }, res) {
         Thought.findOneAndUpdate(
             {_id: params.thoughtId },
-            { $pull: { reaction: { reactionId: params.reaction.Id }}},
+            { $pull: { reactions: { reactionId: params.reaction.Id }}},
             { new: true }
         )
         .then(dbThoughtData => res.json(dbThoughtData))
